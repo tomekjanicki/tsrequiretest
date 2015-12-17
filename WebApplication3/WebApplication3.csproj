@@ -175,16 +175,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="tsd.json" />
-    <None Include="typings\jquery\jquery.d.ts" />
-    <None Include="typings\tsd.d.ts" />
+    <None Include="Static\Scripts\ts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Static\Scripts\ts\typings\tsd.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="typings\requirejs\require.d.ts" />
+    <TypeScriptCompile Include="Static\Scripts\ts\typings\bootstrap\bootstrap.d.ts" />
+    <TypeScriptCompile Include="Static\Scripts\ts\typings\knockout\knockout.d.ts" />
+    <TypeScriptCompile Include="Static\Scripts\ts\typings\requirejs\require.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\" />
     <Folder Include="Static\Scripts\js\" />
-    <Folder Include="Static\Scripts\ts\typings\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
