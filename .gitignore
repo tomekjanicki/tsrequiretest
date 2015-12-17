@@ -212,6 +212,6 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 
-WebApplication3/Static/Content/dist/css/
-WebApplication3/Static/Content/dist/fonts/
-WebApplication3/Static/Scripts/dist/
+Projects/WebApplication3/Static/Content/dist/css/
+Projects/WebApplication3/Static/Content/dist/fonts/
+Projects/WebApplication3/Static/Scripts/dist/
