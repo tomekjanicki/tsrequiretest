@@ -1,5 +1,5 @@
-﻿requirejs.config(
-{
+/// <reference path="../../typings/tsd.d.ts" />
+requirejs.config({
     shim: {
         "bootstrap": { "deps": ["jquery"] }
     },

@@ -1,4 +1,6 @@
-﻿require(["jquery", "bootstrap", "knockout"], function (jquery, bootstrap, ko) {
+﻿/// <reference path="../../../typings/tsd.d.ts" />
+
+require(["jquery", "bootstrap", "knockout"], (jquery, bootstrap, ko: KnockoutStatic) => {
     var createServiceVm = function () {
 
         var self = this;

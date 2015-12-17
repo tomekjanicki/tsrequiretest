@@ -115,7 +115,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Scripts\ts\file1.ts" />
+    <TypeScriptCompile Include="Static\Scripts\ts\App_Start\requiresetup.ts" />
+    <TypeScriptCompile Include="Static\Scripts\ts\Views\Home\Index.ts" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -133,24 +134,18 @@
   <ItemGroup>
     <Content Include="Static\Content\dist\css\app.min.css" />
     <Content Include="Static\Content\dist\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="favicon.ico" />
+    <Content Include="Static\Content\dist\img\favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="gulpfile.js" />
-    <Content Include="Scripts\dist\bootstrap-bundle.min.js" />
-    <None Include="Scripts\startup.js" />
-    <Content Include="Scripts\dist\jquery-bundle.min.js" />
-    <None Include="Scripts\require-setup.js" />
-    <Content Include="Scripts\dist\knockout-bundle.min.js" />
-    <Content Include="Scripts\dist\require-bundle.min.js" />
-    <Content Include="Scripts\dist\ts-bundle.min.js" />
+    <Content Include="Static\Scripts\js\bootstrap-bundle.min.js" />
+    <Content Include="Static\Scripts\js\jquery-bundle.min.js" />
+    <Content Include="Static\Scripts\js\knockout-bundle.min.js" />
+    <Content Include="Static\Scripts\js\require-bundle.min.js" />
     <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <None Include="Static\Content\Site.css" />
+    <None Include="Static\Content\src\Site.css" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -175,17 +170,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="tsd.json" />
-    <None Include="Static\Scripts\ts\typings\jquery\jquery.d.ts" />
-    <TypeScriptCompile Include="Static\Scripts\ts\typings\tsd.d.ts" />
+    <None Include="Static\Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Static\Scripts\typings\tsd.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Static\Scripts\ts\typings\bootstrap\bootstrap.d.ts" />
-    <TypeScriptCompile Include="Static\Scripts\ts\typings\knockout\knockout.d.ts" />
-    <TypeScriptCompile Include="Static\Scripts\ts\typings\requirejs\require.d.ts" />
+    <TypeScriptCompile Include="Static\Scripts\typings\bootstrap\bootstrap.d.ts" />
+    <TypeScriptCompile Include="Static\Scripts\typings\knockout\knockout.d.ts" />
+    <TypeScriptCompile Include="Static\Scripts\typings\requirejs\require.d.ts" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Static\Scripts\js\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

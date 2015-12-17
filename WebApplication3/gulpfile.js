@@ -21,52 +21,53 @@ var taskNames = {
     jquery_bundle: "jquery-bundle", 
     bootstrap_bundle: "bootstrap-bundle",
     requirejs_bundle: "requirejs-bundle",
-    knockout_bundle: "knockout-bundle",
-    ts_bundle: "ts-bundle"
+    knockout_bundle: "knockout-bundle"//,
+    //ts_bundle: "ts-bundle"
 }
 
 var commonConfigs = {
-    scriptsDist: "Scripts/dist",
+    scripts: "/Static/Scripts/js",
     jquerybundle: "jquery-bundle.min.js",
     bootstrapbundle: "bootstrap-bundle.min.js",
     requirejsbundle: "require-bundle.min.js",
     knockoutbundle: "knockout-bundle.min.js",
-    tsbundle: "ts-bundle.min.js"
+    //tsbundle: "ts-bundle.min.js"
+    cssbundle: "app.min.css"
 }
 
 var config = {
-    tssrc: [
-        "scripts/ts/file1.ts"
-    ],
-    tsbundlepath: commonConfigs.scriptsDist + "/" + commonConfigs.tsbundle,
+    //tssrc: [
+    //    "scripts/ts/file1.ts"
+    //],
+    //tsbundlepath: commonConfigs.scripts + "/" + commonConfigs.tsbundle,
 
     requirejssrc: [
-        "bower_components/requirejs/require.js",
-        "scripts/require-setup.js"        
+        "/bower_components/requirejs/require.js"//,
+        //"scripts/require-setup.js"        
     ],
-    requirejsbundlepath: commonConfigs.scriptsDist + "/" + commonConfigs.requirejsbundle,
+    requirejsbundlepath: commonConfigs.scripts + "/" + commonConfigs.requirejsbundle,
 
     jquerysrc: [
-        "bower_components/jquery/dist/jquery.min.js"
+        "/bower_components/jquery/dist/jquery.min.js"
     ],
-    jquerybundlepath: commonConfigs.scriptsDist + "/" + commonConfigs.jquerybundle,
+    jquerybundlepath: commonConfigs.scripts + "/" + commonConfigs.jquerybundle,
 
     bootstrapsrc: [
-        "bower_components/bootstrap/dist/js/bootstrap.min.js"
+        "/bower_components/bootstrap/dist/js/bootstrap.min.js"
     ],    
-    bootstrapbundlepath: commonConfigs.scriptsDist + "/" + commonConfigs.bootstrapbundle,
+    bootstrapbundlepath: commonConfigs.scripts + "/" + commonConfigs.bootstrapbundle,
 
     knockoutsrc: [
-        "bower_components/knockout/dist/knockout.js"
+        "/bower_components/knockout/dist/knockout.js"
     ],
-    knockoutbundlepath: commonConfigs.scriptsDist + "/" + commonConfigs.knockoutbundle,
+    knockoutbundlepath: commonConfigs.scripts + "/" + commonConfigs.knockoutbundle,
 
-    bootstrapcss: "bower_components/bootstrap/dist/css/bootstrap.css",
-    boostrapfonts: "bower_components/bootstrap/dist/fonts/*.*",
+    bootstrapcss: "/bower_components/bootstrap/dist/css/bootstrap.css",
+    boostrapfonts: "/bower_components/bootstrap/dist/fonts/*.*",
 
-    appcss: "Static/Content/Site.css",
-    fontsout: "Static/Content/dist/fonts",
-    cssout: "Static/Content/dist/css"
+    appcss: "/Static/Content/src/Site.css",
+    fontsout: "/Static/Content/dist/fonts",
+    cssout: "/Static/Content/dist/css"
 }
 
 gulp.task(taskNames.clean_vendor_scripts, function () {
@@ -74,50 +75,52 @@ gulp.task(taskNames.clean_vendor_scripts, function () {
         config.jquerybundlepath,
         config.bootstrapbundlepath,
         config.requirejsbundlepath,
-        config.knockoutbundlepath,
-        config.tsbundlepath]);
+        config.knockoutbundlepath//,
+        //config.tsbundlepath
+    ]);
 });
 
-gulp.task(taskNames.ts_bundle, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
-    return gulp.src(config.tssrc)
-     .pipe(tsc({ module: "amd" }))
-     .pipe(uglify())
-     .pipe(concat(commonConfigs.tsbundle))
-     .pipe(gulp.dest(commonConfigs.scriptsDist));
-});
+//gulp.task(taskNames.ts_bundle, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
+//    return gulp.src(config.tssrc)
+//     .pipe(tsc({ module: "amd" }))
+//     .pipe(uglify())
+//     .pipe(concat(commonConfigs.tsbundle))
+//     .pipe(gulp.dest(commonConfigs.scripts));
+//});
 
 gulp.task(taskNames.requirejs_bundle, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
     return gulp.src(config.requirejssrc)
      .pipe(uglify())
      .pipe(concat(commonConfigs.requirejsbundle))
-     .pipe(gulp.dest(commonConfigs.scriptsDist));
+     .pipe(gulp.dest(commonConfigs.scripts));
 });
 
 gulp.task(taskNames.knockout_bundle, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
     return gulp.src(config.knockoutsrc)
      .pipe(uglify())
      .pipe(concat(commonConfigs.knockoutbundle))
-     .pipe(gulp.dest(commonConfigs.scriptsDist));
+     .pipe(gulp.dest(commonConfigs.scripts));
 });
 
 gulp.task(taskNames.jquery_bundle, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
     return gulp.src(config.jquerysrc)
      .pipe(concat(commonConfigs.jquerybundle))
-     .pipe(gulp.dest(commonConfigs.scriptsDist));
+     .pipe(gulp.dest(commonConfigs.scripts));
 });
 
 gulp.task(taskNames.bootstrap_bundle, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
     return gulp.src(config.bootstrapsrc)
      .pipe(concat(commonConfigs.bootstrapbundle))
-     .pipe(gulp.dest(commonConfigs.scriptsDist));
+     .pipe(gulp.dest(commonConfigs.scripts));
 });
 
 gulp.task(taskNames.vendor_scripts, [
     taskNames.jquery_bundle,
     taskNames.bootstrap_bundle,
     taskNames.requirejs_bundle,
-    taskNames.knockout_bundle,
-    taskNames.ts_bundle], function () {
+    taskNames.knockout_bundle//,
+    //taskNames.ts_bundle
+], function () {
 });
 
 gulp.task(taskNames.clean_styles, function () {
@@ -127,7 +130,7 @@ gulp.task(taskNames.clean_styles, function () {
 gulp.task(taskNames.css, [taskNames.clean_styles, taskNames.bower_restore], function () {
     return gulp.src([config.bootstrapcss, config.appcss])
      .pipe(minifyCSS())
-     .pipe(concat("app.min.css"))
+     .pipe(concat(commonConfigs.cssbundle))
      .pipe(gulp.dest(config.cssout));
 });
 
