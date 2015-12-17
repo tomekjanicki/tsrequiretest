@@ -132,9 +132,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Static\Content\dist\css\app.min.css" />
+    <Content Include="Static\Content\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Static\Content\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Static\Content\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Static\Content\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Static\Content\dist\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Static\Content\dist\img\favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="gulpfile.js" />
+    <Content Include="Static\Scripts\dist\bootstrap-bundle.min.js" />
+    <Content Include="Static\Scripts\dist\jquery-bundle.min.js" />
+    <Content Include="Static\Scripts\dist\knockout-bundle.min.js" />
+    <Content Include="Static\Scripts\dist\require-bundle.min.js" />
+    <Content Include="Static\Scripts\dist\views\Home\Index.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -166,9 +177,7 @@
     <None Include="Static\Scripts\typings\knockout\knockout.d.ts" />
     <None Include="Static\Scripts\typings\requirejs\require.d.ts" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Static\Scripts\dist\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
