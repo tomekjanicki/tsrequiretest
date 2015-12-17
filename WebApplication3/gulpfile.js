@@ -64,9 +64,9 @@ var config = {
     bootstrapcss: "bower_components/bootstrap/dist/css/bootstrap.css",
     boostrapfonts: "bower_components/bootstrap/dist/fonts/*.*",
 
-    appcss: "Content/Site.css",
-    fontsout: "Content/dist/fonts",
-    cssout: "Content/dist/css"
+    appcss: "Static/Content/Site.css",
+    fontsout: "Static/Content/dist/fonts",
+    cssout: "Static/Content/dist/css"
 }
 
 gulp.task(taskNames.clean_vendor_scripts, function () {
