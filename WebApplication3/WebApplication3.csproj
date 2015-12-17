@@ -115,8 +115,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Static\Scripts\ts\App_Start\requiresetup.ts" />
-    <TypeScriptCompile Include="Static\Scripts\ts\Views\Home\Index.ts" />
+    <None Include="Static\Scripts\ts\App_Start\requiresetup.ts" />
+    <None Include="Static\Scripts\ts\Views\Home\Index.ts" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -171,12 +171,12 @@
   <ItemGroup>
     <None Include="tsd.json" />
     <None Include="Static\Scripts\typings\jquery\jquery.d.ts" />
-    <TypeScriptCompile Include="Static\Scripts\typings\tsd.d.ts" />
+    <None Include="Static\Scripts\typings\tsd.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Static\Scripts\typings\bootstrap\bootstrap.d.ts" />
-    <TypeScriptCompile Include="Static\Scripts\typings\knockout\knockout.d.ts" />
-    <TypeScriptCompile Include="Static\Scripts\typings\requirejs\require.d.ts" />
+    <None Include="Static\Scripts\typings\bootstrap\bootstrap.d.ts" />
+    <None Include="Static\Scripts\typings\knockout\knockout.d.ts" />
+    <None Include="Static\Scripts\typings\requirejs\require.d.ts" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
