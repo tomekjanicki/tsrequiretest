@@ -119,8 +119,8 @@ gulp.task(taskNames.vendor_scripts, [
     taskNames.jquery_bundle,
     taskNames.bootstrap_bundle,
     taskNames.requirejs_bundle,
-    taskNames.knockout_bundle//,
-    //taskNames.ts_bundle
+    taskNames.knockout_bundle,
+    taskNames.ts_compile
 ], function () {
 });
 
