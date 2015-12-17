@@ -32,14 +32,14 @@ var commonConfigs = {
     requirejsbundle: "require-bundle.min.js",
     knockoutbundle: "knockout-bundle.min.js",
     cssbundle: "app.min.css",
-    tspath: "/static/scripts/ts/views/**"
+    tspath: "static/scripts/ts/views"
 }
 
 var config = {
     tssrc: [
-        commonConfigs.tspath + "/" + "*.ts"
+        commonConfigs.tspath + "/**/*.ts"
     ],
-    tsdest: commonConfigs.tspath + "/" + "*.js",
+    tsdest: commonConfigs.tspath + "/**/*.js",
 
     requirejssrcjs: [
         "/bower_components/requirejs/require.js"
@@ -86,7 +86,7 @@ gulp.task(taskNames.ts_compile, [taskNames.clean_vendor_scripts, taskNames.bower
     return gulp.src(config.tssrc)
      .pipe(tsc({ module: "amd" }))
      .pipe(uglify())
-     .pipe(gulp.dest(config.tsdest));
+     .pipe(gulp.dest(commonConfigs.tspath));
 });
 
 gulp.task(taskNames.requirejs_bundle, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
