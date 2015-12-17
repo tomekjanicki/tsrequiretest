@@ -8,6 +8,7 @@ var minifyCSS = require("gulp-minify-css");
 var bower = require("gulp-bower");
 var sourcemaps = require("gulp-sourcemaps");
 var tsc = require("gulp-tsc");
+var merge = require("gulp-merge");
 
 var taskNames = {
     clean_vendor_scripts: "clean-vendor-scripts",
@@ -90,7 +91,10 @@ gulp.task(taskNames.ts_compile, [taskNames.clean_vendor_scripts, taskNames.bower
 });
 
 gulp.task(taskNames.requirejs_bundle, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
-    return gulp.src(config.requirejssrcjs)
+    return merge(
+            gulp.src(config.requirejssrcjs),
+            gulp.src(config.requirejssrcts).pipe(tsc({ module: "amd" }))
+        )
      .pipe(uglify())
      .pipe(concat(commonConfigs.requirejsbundle))
      .pipe(gulp.dest(commonConfigs.scripts));
