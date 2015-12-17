@@ -1,0 +1,15 @@
+{
+  "name": "WebApplication3",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "jquery": "2.1.4",
+    "bootstrap": "3.3.5",
+    "knockout": "3.4.0",
+    "requirejs": "2.1.20"
+  }
+}
