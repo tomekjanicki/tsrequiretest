@@ -26,7 +26,7 @@ var taskNames = {
 }
 
 var commonConfigs = {
-    scripts: "/Static/Scripts/js",
+    scripts: "Static/Scripts/js",
     jquerybundle: "jquery-bundle.min.js",
     bootstrapbundle: "bootstrap-bundle.min.js",
     requirejsbundle: "require-bundle.min.js",
@@ -42,34 +42,34 @@ var config = {
     tsdest: commonConfigs.tspath + "/**/*.js",
 
     requirejssrcjs: [
-        "/bower_components/requirejs/require.js"
+        "bower_components/requirejs/require.js"
     ],
     requirejssrcts: [
-        "/static/scripts/ts/App_Start/requiresetup.ts"
+        "static/scripts/ts/App_Start/requiresetup.ts"
     ],
     requirejsbundlepath: commonConfigs.scripts + "/" + commonConfigs.requirejsbundle,
 
     jquerysrc: [
-        "/bower_components/jquery/dist/jquery.min.js"
+        "bower_components/jquery/dist/jquery.min.js"
     ],
     jquerybundlepath: commonConfigs.scripts + "/" + commonConfigs.jquerybundle,
 
     bootstrapsrc: [
-        "/bower_components/bootstrap/dist/js/bootstrap.min.js"
+        "bower_components/bootstrap/dist/js/bootstrap.min.js"
     ],    
     bootstrapbundlepath: commonConfigs.scripts + "/" + commonConfigs.bootstrapbundle,
 
     knockoutsrc: [
-        "/bower_components/knockout/dist/knockout.js"
+        "bower_components/knockout/dist/knockout.js"
     ],
     knockoutbundlepath: commonConfigs.scripts + "/" + commonConfigs.knockoutbundle,
 
-    bootstrapcss: "/bower_components/bootstrap/dist/css/bootstrap.css",
-    boostrapfonts: "/bower_components/bootstrap/dist/fonts/*.*",
+    bootstrapcss: "bower_components/bootstrap/dist/css/bootstrap.css",
+    boostrapfonts: "bower_components/bootstrap/dist/fonts/*.*",
 
-    appcss: "/Static/Content/src/Site.css",
-    fontsout: "/Static/Content/dist/fonts",
-    cssout: "/Static/Content/dist/css"
+    appcss: "Static/Content/src/Site.css",
+    fontsout: "Static/Content/dist/fonts",
+    cssout: "Static/Content/dist/css"
 }
 
 gulp.task(taskNames.clean_vendor_scripts, function () {
