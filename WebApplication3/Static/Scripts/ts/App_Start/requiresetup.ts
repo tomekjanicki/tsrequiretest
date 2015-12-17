@@ -6,8 +6,8 @@ requirejs.config(
             "bootstrap": { "deps": ["jquery"] }
         },
         paths: {
-            "jquery": "/Static/Scripts/js/jquery-bundle.min",
-            "bootstrap": "/Static/Scripts/js/bootstrap-bundle.min",
-            "knockout": "/Static/Scripts/js/knockout-bundle.min"
+            "jquery": "/Static/Scripts/dist/jquery-bundle.min",
+            "bootstrap": "/Static/Scripts/dist/bootstrap-bundle.min",
+            "knockout": "/Static/Scripts/dist/knockout-bundle.min"
         }
     });

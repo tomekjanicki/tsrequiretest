@@ -132,15 +132,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Static\Content\dist\css\app.min.css" />
-    <Content Include="Static\Content\dist\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Static\Content\dist\img\favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="gulpfile.js" />
-    <Content Include="Static\Scripts\js\bootstrap-bundle.min.js" />
-    <Content Include="Static\Scripts\js\jquery-bundle.min.js" />
-    <Content Include="Static\Scripts\js\knockout-bundle.min.js" />
-    <Content Include="Static\Scripts\js\require-bundle.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -160,12 +154,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Static\Content\dist\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Static\Content\dist\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Static\Content\dist\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Static\Content\dist\fonts\glyphicons-halflings-regular.woff2" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
@@ -178,7 +166,9 @@
     <None Include="Static\Scripts\typings\knockout\knockout.d.ts" />
     <None Include="Static\Scripts\typings\requirejs\require.d.ts" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Static\Scripts\dist\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
