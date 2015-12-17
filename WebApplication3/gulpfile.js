@@ -21,8 +21,8 @@ var taskNames = {
     jquery_bundle: "jquery-bundle", 
     bootstrap_bundle: "bootstrap-bundle",
     requirejs_bundle: "requirejs-bundle",
-    knockout_bundle: "knockout-bundle"//,
-    //ts_bundle: "ts-bundle"
+    knockout_bundle: "knockout-bundle",
+    ts_compile: "ts_compile"
 }
 
 var commonConfigs = {
@@ -31,19 +31,21 @@ var commonConfigs = {
     bootstrapbundle: "bootstrap-bundle.min.js",
     requirejsbundle: "require-bundle.min.js",
     knockoutbundle: "knockout-bundle.min.js",
-    //tsbundle: "ts-bundle.min.js"
-    cssbundle: "app.min.css"
+    cssbundle: "app.min.css",
+    tspath: "/static/scripts/ts/views/**"
 }
 
 var config = {
-    //tssrc: [
-    //    "scripts/ts/file1.ts"
-    //],
-    //tsbundlepath: commonConfigs.scripts + "/" + commonConfigs.tsbundle,
+    tssrc: [
+        commonConfigs.tspath + "/" + "*.ts"
+    ],
+    tsdest: commonConfigs.tspath + "/" + "*.js",
 
-    requirejssrc: [
-        "/bower_components/requirejs/require.js"//,
-        //"scripts/require-setup.js"        
+    requirejssrcjs: [
+        "/bower_components/requirejs/require.js"
+    ],
+    requirejssrcts: [
+        "/static/scripts/ts/App_Start/requiresetup.ts"
     ],
     requirejsbundlepath: commonConfigs.scripts + "/" + commonConfigs.requirejsbundle,
 
@@ -75,21 +77,20 @@ gulp.task(taskNames.clean_vendor_scripts, function () {
         config.jquerybundlepath,
         config.bootstrapbundlepath,
         config.requirejsbundlepath,
-        config.knockoutbundlepath//,
-        //config.tsbundlepath
+        config.knockoutbundlepath,
+        config.tsdest
     ]);
 });
 
-//gulp.task(taskNames.ts_bundle, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
-//    return gulp.src(config.tssrc)
-//     .pipe(tsc({ module: "amd" }))
-//     .pipe(uglify())
-//     .pipe(concat(commonConfigs.tsbundle))
-//     .pipe(gulp.dest(commonConfigs.scripts));
-//});
+gulp.task(taskNames.ts_compile, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
+    return gulp.src(config.tssrc)
+     .pipe(tsc({ module: "amd" }))
+     .pipe(uglify())
+     .pipe(gulp.dest(config.tsdest));
+});
 
 gulp.task(taskNames.requirejs_bundle, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
-    return gulp.src(config.requirejssrc)
+    return gulp.src(config.requirejssrcjs)
      .pipe(uglify())
      .pipe(concat(commonConfigs.requirejsbundle))
      .pipe(gulp.dest(commonConfigs.scripts));
