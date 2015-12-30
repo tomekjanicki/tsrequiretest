@@ -115,7 +115,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Static\Scripts\ts\Views\Home\Index.ts" />
+    <None Include="Static\Scripts\ts\Views\Home\Index\Main.ts" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -144,8 +144,9 @@
     <Content Include="Static\Scripts\dist\jquery-bundle.min.js" />
     <Content Include="Static\Scripts\dist\knockout-bundle.min.js" />
     <Content Include="Static\Scripts\dist\require-bundle.min.js" />
-    <Content Include="Static\Scripts\dist\views\Home\Index.js" />
     <None Include="Static\Scripts\js\requireconfig.js" />
+    <Content Include="Static\Scripts\dist\views\Home\Index\Main.js" />
+    <Content Include="Static\Scripts\dist\views\Home\Index\TestVm.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -177,14 +178,16 @@
     <None Include="Static\Scripts\typings\knockout\knockout.d.ts" />
     <None Include="Static\Scripts\typings\requirejs\require.d.ts" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Static\Scripts\ts\Views\Home\Index\TestVm.ts" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptTarget>ES6</TypeScriptTarget>
     <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
     <TypeScriptCompileOnSaveEnabled>False</TypeScriptCompileOnSaveEnabled>
     <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
