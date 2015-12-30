@@ -115,6 +115,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Static\Scripts\ts\tsconfig.json" />
     <None Include="Static\Scripts\ts\Views\Home\Index\Main.ts" />
   </ItemGroup>
   <ItemGroup>
