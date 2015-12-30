@@ -8,6 +8,7 @@ var minifyCSS = require("gulp-minify-css");
 var bower = require("gulp-bower");
 var sourcemaps = require("gulp-sourcemaps");
 var ts = require("gulp-typescript");
+var amdOptimize = require("gulp-amd-optimizer");
 var merge = require("gulp-merge");
 
 var taskNames = {

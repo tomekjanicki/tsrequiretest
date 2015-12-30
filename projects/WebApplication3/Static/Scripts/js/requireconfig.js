@@ -1,10 +1,11 @@
 ﻿var require = {
+    baseUrl: "/Static/Scripts/dist/",
     shim: {
         "bootstrap": { "deps": ["jquery"] }
     },
     paths: {
-        "jquery": "/Static/Scripts/dist/jquery-bundle.min",
-        "bootstrap": "/Static/Scripts/dist/bootstrap-bundle.min",
-        "knockout": "/Static/Scripts/dist/knockout-bundle.min"
+        "jquery": "jquery-bundle.min",
+        "bootstrap": "bootstrap-bundle.min",
+        "knockout": "knockout-bundle.min"
     }
 };
