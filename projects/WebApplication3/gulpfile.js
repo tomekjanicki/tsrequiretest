@@ -44,10 +44,8 @@ var config = {
     tsdest: commonConfigs.tsdestpath + "/**/*.js",
 
     requirejssrcjs: [
-        "bower_components/requirejs/require.js"
-    ],
-    requirejssrcts: [
-        "static/scripts/ts/App_Start/requiresetup.ts"
+        "static/scripts/js/requireconfig.js",
+        "bower_components/requirejs/require.js"        
     ],
     requirejsbundlepath: commonConfigs.scripts + "/" + commonConfigs.requirejsbundle,
 
@@ -92,10 +90,7 @@ gulp.task(taskNames.ts_compile, [taskNames.clean_vendor_scripts, taskNames.bower
 });
 
 gulp.task(taskNames.requirejs_bundle, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
-    return merge(
-            gulp.src(config.requirejssrcjs),
-            gulp.src(config.requirejssrcts).pipe(tsc({ module: "amd" }))
-        )
+    return gulp.src(config.requirejssrcjs)
      .pipe(uglify())
      .pipe(concat(commonConfigs.requirejsbundle))
      .pipe(gulp.dest(commonConfigs.scripts));

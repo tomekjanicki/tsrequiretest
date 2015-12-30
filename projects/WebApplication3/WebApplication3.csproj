@@ -115,7 +115,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Static\Scripts\ts\App_Start\requiresetup.ts" />
     <None Include="Static\Scripts\ts\Views\Home\Index.ts" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +145,7 @@
     <Content Include="Static\Scripts\dist\knockout-bundle.min.js" />
     <Content Include="Static\Scripts\dist\require-bundle.min.js" />
     <Content Include="Static\Scripts\dist\views\Home\Index.js" />
+    <None Include="Static\Scripts\js\requireconfig.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
