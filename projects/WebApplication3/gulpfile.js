@@ -7,7 +7,7 @@ var del = require("del");
 var minifyCSS = require("gulp-minify-css");
 var bower = require("gulp-bower");
 var sourcemaps = require("gulp-sourcemaps");
-var tsc = require("gulp-tsc");
+var ts = require("gulp-typescript");
 var merge = require("gulp-merge");
 
 var taskNames = {
@@ -27,7 +27,7 @@ var taskNames = {
 }
 
 var commonConfigs = {
-    scripts: "Static/Scripts/dist",
+    scripts: "static/scripts/dist",
     jquerybundle: "jquery-bundle.min.js",
     bootstrapbundle: "bootstrap-bundle.min.js",
     requirejsbundle: "require-bundle.min.js",
@@ -67,9 +67,10 @@ var config = {
     bootstrapcss: "bower_components/bootstrap/dist/css/bootstrap.css",
     boostrapfonts: "bower_components/bootstrap/dist/fonts/*.*",
 
-    appcss: "Static/Content/src/Site.css",
-    fontsout: "Static/Content/dist/fonts",
-    cssout: "Static/Content/dist/css"
+    appcss: "static/content/src/site.css",
+    fontsout: "static/content/dist/fonts",
+    cssout: "static/content/dist/css",
+    tsconfig: "static/scripts/ts/tsconfig.json"
 }
 
 gulp.task(taskNames.clean_vendor_scripts, function () {
@@ -83,8 +84,9 @@ gulp.task(taskNames.clean_vendor_scripts, function () {
 });
 
 gulp.task(taskNames.ts_compile, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
+    var tsProject = ts.createProject(config.tsconfig);
     return gulp.src(config.tssrc)
-     .pipe(tsc({ module: "amd", target: "ES5" }))
+     .pipe(ts(tsProject))
      .pipe(uglify())
      .pipe(gulp.dest(commonConfigs.tsdestpath));
 });
