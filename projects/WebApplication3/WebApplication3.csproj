@@ -145,6 +145,8 @@
     <Content Include="Static\Scripts\dist\knockout-bundle.min.js" />
     <Content Include="Static\Scripts\dist\require-bundle.min.js" />
     <None Include="Static\Scripts\js\requireconfig.js" />
+    <Content Include="Static\Scripts\dist\Utils\Base.js" />
+    <Content Include="Static\Scripts\dist\Utils\Next.js" />
     <Content Include="Static\Scripts\dist\views\Home\Index\Main.js" />
     <Content Include="Static\Scripts\dist\views\Home\Index\TestVm.js" />
     <Content Include="Web.config" />
@@ -181,13 +183,19 @@
   <ItemGroup>
     <None Include="Static\Scripts\ts\Views\Home\Index\TestVm.ts" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Static\Scripts\ts\Utils\Base.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Static\Scripts\ts\Utils\Next.ts" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <TypeScriptTarget>ES6</TypeScriptTarget>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
     <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
     <TypeScriptCompileOnSaveEnabled>False</TypeScriptCompileOnSaveEnabled>
     <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>

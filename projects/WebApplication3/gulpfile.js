@@ -33,8 +33,8 @@ var commonConfigs = {
     requirejsbundle: "require-bundle.min.js",
     knockoutbundle: "knockout-bundle.min.js",
     cssbundle: "app.min.css",
-    tssourcepath: "static/scripts/ts/views",
-    tsdestpath: "static/scripts/dist/views"
+    tssourcepath: "static/scripts/ts",
+    tsdestpath: "static/scripts/dist"
 }
 
 var config = {
