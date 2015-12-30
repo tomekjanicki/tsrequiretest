@@ -84,7 +84,7 @@ gulp.task(taskNames.clean_vendor_scripts, function () {
 
 gulp.task(taskNames.ts_compile, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
     return gulp.src(config.tssrc)
-     .pipe(tsc({ module: "amd" }))
+     .pipe(tsc({ module: "amd", target: "ES5" }))
      .pipe(uglify())
      .pipe(gulp.dest(commonConfigs.tsdestpath));
 });
