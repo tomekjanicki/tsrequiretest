@@ -11,6 +11,7 @@ var ts = require("gulp-typescript");
 var amdOptimize = require("gulp-amd-optimizer");
 var merge = require("gulp-merge");
 var tap = require("gulp-tap");
+var sourcemaps = require("gulp-sourcemaps");
 
 var taskNames = {
     clean_vendor_scripts: "clean-vendor-scripts",
@@ -33,7 +34,8 @@ var commonConfigs = {
     cssbundle: "app.min.css",
     tssourcepath: "static/scripts/ts",
     tsdestpath: "static/scripts/dist",
-    bowerFolder: "bower_components"
+    bowerFolder: "bower_components",
+    sourcemap: "./"
 }
 
 var requireConfig = {
@@ -103,8 +105,10 @@ gulp.task(taskNames.ts_compile, [taskNames.clean_vendor_scripts, taskNames.bower
 
 gulp.task(taskNames.requirejs_bundle, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
     return gulp.src(config.requirejssrcjs)
+     .pipe(sourcemaps.init())
      .pipe(uglify())
      .pipe(concat(commonConfigs.requirejsbundle))
+     .pipe(sourcemaps.write(commonConfigs.sourcemap))
      .pipe(gulp.dest(commonConfigs.scripts));
 });
 
@@ -120,8 +124,10 @@ gulp.task(taskNames.shared_bundle, [taskNames.clean_vendor_scripts, taskNames.bo
         })),
         gulp.src(config.dummyscript, { base: requireConfig.baseUrl }).pipe(amdOptimize(requireConfig, options))
      )
-     .pipe(concat(commonConfigs.sharedbundle))
+     .pipe(sourcemaps.init())
      .pipe(uglify())
+     .pipe(concat(commonConfigs.sharedbundle))
+     .pipe(sourcemaps.write(commonConfigs.sourcemap))
      .pipe(gulp.dest(commonConfigs.scripts));
 });
 

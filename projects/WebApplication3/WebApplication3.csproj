@@ -115,6 +115,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Static\Scripts\dist\shared.min.js.map" />
+    <Content Include="Static\Scripts\dist\require-bundle.min.js.map" />
     <None Include="Static\Scripts\ts\tsconfig.json" />
     <None Include="Static\Scripts\ts\Views\Home\Index\Main.ts" />
   </ItemGroup>
