@@ -26,11 +26,21 @@ var taskNames = {
     ts_compile: "ts_compile"
 }
 
+var commonConfigs = {
+    scripts: "static/scripts/dist",
+    requirejsbundle: "require-bundle.min.js",
+    sharedbundle: "shared.min.js",
+    cssbundle: "app.min.css",
+    tssourcepath: "static/scripts/ts",
+    tsdestpath: "static/scripts/dist",
+    bowerFolder: "bower_components"
+}
+
 var requireConfig = {
     baseUrl: "",
     paths: {
-        "jquery": "bower_components/jquery/dist/jquery",
-        "knockout": "bower_components/knockout/dist/knockout.debug"
+        "jquery": commonConfigs.bowerFolder + "/jquery/dist/jquery",
+        "knockout": commonConfigs.bowerFolder + "/knockout/dist/knockout.debug"
     },
     exclude: [
         "exports",
@@ -50,15 +60,6 @@ var shimConfig = {
     }
 };
 
-var commonConfigs = {
-    scripts: "static/scripts/dist",
-    requirejsbundle: "require-bundle.min.js",
-    sharedbundle: "shared.min.js",
-    cssbundle: "app.min.css",
-    tssourcepath: "static/scripts/ts",
-    tsdestpath: "static/scripts/dist"
-}
-
 var config = {
     tssrc: [
         commonConfigs.tssourcepath + "/**/*.ts"
@@ -67,14 +68,16 @@ var config = {
 
     requirejssrcjs: [
         "static/scripts/js/requireconfig.js",
-        "bower_components/requirejs/require.js"
+        commonConfigs.bowerFolder + "/requirejs/require.js"
     ],
     requirejsbundlepath: commonConfigs.scripts + "/" + commonConfigs.requirejsbundle,
 
+    dummyscript: "static/scripts/js/dummy.js",
+
     sharedbundlepath: commonConfigs.scripts + "/" + commonConfigs.sharedbundle,
 
-    bootstrapcss: "bower_components/bootstrap/dist/css/bootstrap.css",
-    boostrapfonts: "bower_components/bootstrap/dist/fonts/*.*",
+    bootstrapcss: commonConfigs.bowerFolder + "/bootstrap/dist/css/bootstrap.css",
+    boostrapfonts: commonConfigs.bowerFolder + "/bootstrap/dist/fonts/*.*",
 
     appcss: "static/content/src/site.css",
     fontsout: "static/content/dist/fonts",
@@ -109,17 +112,17 @@ gulp.task(taskNames.shared_bundle, [taskNames.clean_vendor_scripts, taskNames.bo
     return merge(
         gulp.src(Object.keys(shimConfig).map(function (shimItem) { return shimItem }))
         .pipe(tap(function (file) {
-            var relativePath = file.path.substring(file.path.lastIndexOf("bower_components")).replace(/\\/g, "/");
+            var relativePath = file.path.substring(file.path.lastIndexOf(commonConfigs.bowerFolder)).replace(/\\/g, "/");
             var header = shimConfig[relativePath].header;
             var footer = shimConfig[relativePath].footer;
             var content = file.contents.toString();
             file.contents = Buffer.concat([new Buffer(header), new Buffer(content), new Buffer(footer)]);
         })),
-        gulp.src("static/scripts/js/dummy.js", { base: requireConfig.baseUrl }).pipe(amdOptimize(requireConfig, options))
+        gulp.src(config.dummyscript, { base: requireConfig.baseUrl }).pipe(amdOptimize(requireConfig, options))
      )
-     .pipe(concat("shared.min.js"))
+     .pipe(concat(commonConfigs.sharedbundle))
      .pipe(uglify())
-     .pipe(gulp.dest("static/scripts/dist/"));
+     .pipe(gulp.dest(commonConfigs.scripts));
 });
 
 gulp.task(taskNames.vendor_scripts, [
