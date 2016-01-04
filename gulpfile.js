@@ -26,6 +26,7 @@ var taskNames = {
     shared_bundle: "shared-bundle",
     requirejs_bundle: "requirejs-bundle",
     ts_compile: "ts_compile",
+    tsd: "tsd",
     watchStyles: "watchStyles",
     watchScripts: "watchScripts"
 }
@@ -98,7 +99,7 @@ gulp.task(taskNames.clean_vendor_scripts, function () {
     ]);
 });
 
-gulp.task(taskNames.ts_compile, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
+gulp.task(taskNames.ts_compile, [taskNames.clean_vendor_scripts, taskNames.bower_restore, taskNames.tsd], function () {
     var tsProject = ts.createProject(config.tsconfig);
     return gulp.src(config.tssrc)
      .pipe(sourcemaps.init())
@@ -179,9 +180,9 @@ gulp.task(taskNames.watchScripts, function () {
     gulp.watch([commonConfigs.tssourcepath + "/**/*.*", "projects/webapplication3/static/scripts/js/**/*.*"], [taskNames.vendor_scripts]);
 });
 
-gulp.task('tsd', function (callback) {
+gulp.task(taskNames.tsd, function (callback) {
     tsd({
-        command: 'reinstall',
-        config: './tsd.json'
+        command: "reinstall",
+        config: "tsd.json"
     }, callback);
 });
