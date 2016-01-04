@@ -141,12 +141,9 @@
     <Content Include="Static\Content\dist\img\favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="gulpfile.js" />
-    <Content Include="Static\Scripts\dist\bootstrap-bundle.min.js" />
-    <Content Include="Static\Scripts\dist\jquery-bundle.min.js" />
-    <Content Include="Static\Scripts\dist\knockout-bundle.min.js" />
     <Content Include="Static\Scripts\dist\require-bundle.min.js" />
     <None Include="Static\Scripts\js\requireconfig.js" />
-    <Content Include="Static\Scripts\dist\shared.js" />
+    <Content Include="Static\Scripts\dist\shared.min.js" />
     <Content Include="Static\Scripts\dist\Utils\Base.js" />
     <Content Include="Static\Scripts\dist\Utils\Next.js" />
     <Content Include="Static\Scripts\dist\views\Home\Index\Main.js" />

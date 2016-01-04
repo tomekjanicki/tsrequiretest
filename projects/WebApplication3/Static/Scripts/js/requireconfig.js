@@ -1,6 +1,6 @@
 ﻿var require = {
     baseUrl: "/Static/Scripts/dist/",
     bundles: {
-        "shared": ["jquery", "knockout", "bootstrap"]
+        "shared.min": ["jquery", "knockout", "bootstrap"]
     }
 };
