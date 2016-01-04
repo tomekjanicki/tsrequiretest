@@ -13,6 +13,7 @@
     "gulp-typescript": "2.10.0",
     "tsd": "0.6.5",
     "gulp-merge": "0.1.1",
-    "gulp-amd-optimizer": "0.4.0"
+    "gulp-amd-optimizer": "0.4.0",
+    "gulp-tap": "0.1.3"
   }
 }

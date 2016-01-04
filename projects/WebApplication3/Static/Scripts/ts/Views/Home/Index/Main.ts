@@ -4,12 +4,10 @@ import TestVm = require("./TestVm");
 import $ = require("jquery");
 import ko = require("knockout");
 
-require(["bootstrap"], () => {
-    $(() => {
-        $("#jqueryButton").click(() => {
-            window.alert("Alert from jquery");
-        });
+$(() => {
+    $("#jqueryButton").click(() => {
+        window.alert("Alert from jquery");
     });
+});
 
-    ko.applyBindings(new TestVm());
-})
+ko.applyBindings(new TestVm());

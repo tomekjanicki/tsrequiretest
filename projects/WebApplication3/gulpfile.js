@@ -1,4 +1,4 @@
-/// <binding BeforeBuild='default' />
+﻿/// <binding BeforeBuild='default' />
 "use strict";
 var gulp = require("gulp");
 var concat = require("gulp-concat");
@@ -10,6 +10,7 @@ var sourcemaps = require("gulp-sourcemaps");
 var ts = require("gulp-typescript");
 var amdOptimize = require("gulp-amd-optimizer");
 var merge = require("gulp-merge");
+var tap = require("gulp-tap");
 
 var taskNames = {
     clean_vendor_scripts: "clean-vendor-scripts",
@@ -152,3 +153,45 @@ gulp.task(taskNames.bower_restore, function () {
 
 gulp.task(taskNames.default, [taskNames.vendor_scripts, taskNames.styles], function () {
 });
+
+var requireConfig = {
+    baseUrl: "",
+    paths: {
+        "jquery": "bower_components/jquery/dist/jquery",
+        "knockout": "bower_components/knockout/dist/knockout.debug"
+    },
+    exclude: [
+        "exports",
+        "require",
+        "bootstrap"
+    ]
+};
+
+var options = {
+    umd: true
+};
+
+var shimConfig =
+    {
+        "bower_components/bootstrap/dist/js/bootstrap.js": {
+            "header": "define(\"bootstrap\", [], function() {",
+            "footer": "});"
+        }
+    }
+
+gulp.task("test", function () {
+    return merge(
+        gulp.src(Object.keys(shimConfig).map(function(shimItem) {return shimItem}))
+        .pipe(tap(function(file) {
+            var relativePath = file.path.substring(file.path.lastIndexOf("bower_components")).replace(/\\/g, "/");
+            var header = shimConfig[relativePath].header;
+            var footer = shimConfig[relativePath].footer;
+            var content = file.contents.toString();
+            file.contents = Buffer.concat([new Buffer(header), new Buffer(content), new Buffer(footer)]);
+        })),
+        gulp.src("static/scripts/js/dummy.js", { base: requireConfig.baseUrl }).pipe(amdOptimize(requireConfig, options))
+     )
+     .pipe(concat("shared.js"))
+     .pipe(uglify())
+     .pipe(gulp.dest("static/scripts/dist/"));
+})

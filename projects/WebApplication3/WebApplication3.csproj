@@ -146,10 +146,12 @@
     <Content Include="Static\Scripts\dist\knockout-bundle.min.js" />
     <Content Include="Static\Scripts\dist\require-bundle.min.js" />
     <None Include="Static\Scripts\js\requireconfig.js" />
+    <Content Include="Static\Scripts\dist\shared.js" />
     <Content Include="Static\Scripts\dist\Utils\Base.js" />
     <Content Include="Static\Scripts\dist\Utils\Next.js" />
     <Content Include="Static\Scripts\dist\views\Home\Index\Main.js" />
     <Content Include="Static\Scripts\dist\views\Home\Index\TestVm.js" />
+    <None Include="Static\Scripts\js\dummy.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -224,7 +226,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1334</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1334/</IISUrl>
+          <IISUrl>http://localhost:1335/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
