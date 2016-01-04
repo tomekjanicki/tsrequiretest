@@ -1,8 +1,8 @@
 {
-  "name": "WebApplication3",
+  "name": "Solution",
   "description": "",
   "main": "",
-  "moduleType": [],
+  "moduleType": [ ],
   "license": "MIT",
   "homepage": "",
   "private": true,

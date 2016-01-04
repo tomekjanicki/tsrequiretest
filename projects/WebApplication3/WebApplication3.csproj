@@ -147,7 +147,6 @@
     <Content Include="Static\Content\dist\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Static\Content\dist\img\favicon.ico" />
     <Content Include="Global.asax" />
-    <None Include="gulpfile.js" />
     <Content Include="Static\Scripts\dist\require-bundle.min.js" />
     <None Include="Static\Scripts\js\requireconfig.js" />
     <Content Include="Static\Scripts\dist\shared.min.js" />
@@ -168,17 +167,12 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bower.json" />
-    <None Include="package.json" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="tsd.json" />
     <None Include="Static\Scripts\typings\jquery\jquery.d.ts" />
     <None Include="Static\Scripts\typings\tsd.d.ts" />
   </ItemGroup>

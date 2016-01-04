@@ -30,12 +30,12 @@ var taskNames = {
 }
 
 var commonConfigs = {
-    scripts: "static/scripts/dist",
+    scripts: "projects/webapplication3/static/scripts/dist",
     requirejsbundle: "require-bundle.min.js",
     sharedbundle: "shared.min.js",
     cssbundle: "app.min.css",
-    tssourcepath: "static/scripts/ts",
-    tsdestpath: "static/scripts/dist",
+    tssourcepath: "projects/webapplication3/static/scripts/ts",
+    tsdestpath: "projects/webapplication3/static/scripts/dist",
     bowerFolder: "bower_components",
     sourcemap: "./"
 }
@@ -71,22 +71,22 @@ var config = {
     tsdest: commonConfigs.tsdestpath + "/**/*.js",
 
     requirejssrcjs: [
-        "static/scripts/js/requireconfig.js",
+        "projects/webapplication3/static/scripts/js/requireconfig.js",
         commonConfigs.bowerFolder + "/requirejs/require.js"
     ],
     requirejsbundlepath: commonConfigs.scripts + "/" + commonConfigs.requirejsbundle,
 
-    dummyscript: "static/scripts/js/dummy.js",
+    dummyscript: "projects/webapplication3/static/scripts/js/dummy.js",
 
     sharedbundlepath: commonConfigs.scripts + "/" + commonConfigs.sharedbundle,
 
     bootstrapcss: commonConfigs.bowerFolder + "/bootstrap/dist/css/bootstrap.css",
     boostrapfonts: commonConfigs.bowerFolder + "/bootstrap/dist/fonts/*.*",
 
-    appcss: "static/content/src/site.css",
-    fontsout: "static/content/dist/fonts",
-    cssout: "static/content/dist/css",
-    tsconfig: "static/scripts/ts/tsconfig.json"
+    appcss: "projects/webapplication3/static/content/src/site.css",
+    fontsout: "projects/webapplication3/static/content/dist/fonts",
+    cssout: "projects/webapplication3/static/content/dist/css",
+    tsconfig: "projects/webapplication3/static/scripts/ts/tsconfig.json"
 }
 
 gulp.task(taskNames.clean_vendor_scripts, function () {
@@ -171,9 +171,9 @@ gulp.task(taskNames.default, [taskNames.vendor_scripts, taskNames.styles], funct
 });
 
 gulp.task(taskNames.watchStyles, function () {
-    gulp.watch(["static/content/src/**/*.*"], [taskNames.styles]);
+    gulp.watch(["projects/webapplication3/static/content/src/**/*.*"], [taskNames.styles]);
 });
 
 gulp.task(taskNames.watchScripts, function () {
-    gulp.watch([commonConfigs.tssourcepath + "/**/*.*", "static/scripts/js/**/*.*"], [taskNames.vendor_scripts]);
+    gulp.watch([commonConfigs.tssourcepath + "/**/*.*", "projects/webapplication3/static/scripts/js/**/*.*"], [taskNames.vendor_scripts]);
 });
