@@ -11,7 +11,6 @@ var ts = require("gulp-typescript");
 var amdOptimize = require("gulp-amd-optimizer");
 var merge = require("gulp-merge");
 var tap = require("gulp-tap");
-var sourcemaps = require("gulp-sourcemaps");
 var tsd = require("gulp-tsd");
 
 var taskNames = {
