@@ -118,6 +118,10 @@
     <Content Include="Static\Scripts\dist\shared.min.js.map" />
     <Content Include="Static\Scripts\dist\require-bundle.min.js.map" />
     <Content Include="Static\Content\dist\css\app.min.css.map" />
+    <Content Include="Static\Scripts\dist\Utils\Base.js.map" />
+    <Content Include="Static\Scripts\dist\Utils\Next.js.map" />
+    <Content Include="Static\Scripts\dist\views\Home\Index\Main.js.map" />
+    <Content Include="Static\Scripts\dist\views\Home\Index\TestVm.js.map" />
     <None Include="Static\Scripts\ts\tsconfig.json" />
     <None Include="Static\Scripts\ts\Views\Home\Index\Main.ts" />
   </ItemGroup>

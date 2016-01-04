@@ -98,8 +98,10 @@ gulp.task(taskNames.clean_vendor_scripts, function () {
 gulp.task(taskNames.ts_compile, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
     var tsProject = ts.createProject(config.tsconfig);
     return gulp.src(config.tssrc)
+     .pipe(sourcemaps.init())
      .pipe(ts(tsProject))
      .pipe(uglify())
+     .pipe(sourcemaps.write(commonConfigs.sourcemap))
      .pipe(gulp.dest(commonConfigs.tsdestpath));
 });
 
