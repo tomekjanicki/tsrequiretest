@@ -144,8 +144,10 @@ gulp.task(taskNames.clean_styles, function () {
 
 gulp.task(taskNames.css, [taskNames.clean_styles, taskNames.bower_restore], function () {
     return gulp.src([config.bootstrapcss, config.appcss])
+     .pipe(sourcemaps.init())
      .pipe(minifyCSS())
      .pipe(concat(commonConfigs.cssbundle))
+     .pipe(sourcemaps.write(commonConfigs.sourcemap))
      .pipe(gulp.dest(config.cssout));
 });
 
