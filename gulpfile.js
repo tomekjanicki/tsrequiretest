@@ -12,6 +12,7 @@ var amdOptimize = require("gulp-amd-optimizer");
 var merge = require("gulp-merge");
 var tap = require("gulp-tap");
 var sourcemaps = require("gulp-sourcemaps");
+var tsd = require("gulp-tsd");
 
 var taskNames = {
     clean_vendor_scripts: "clean-vendor-scripts",
@@ -176,4 +177,11 @@ gulp.task(taskNames.watchStyles, function () {
 
 gulp.task(taskNames.watchScripts, function () {
     gulp.watch([commonConfigs.tssourcepath + "/**/*.*", "projects/webapplication3/static/scripts/js/**/*.*"], [taskNames.vendor_scripts]);
+});
+
+gulp.task('tsd', function (callback) {
+    tsd({
+        command: 'reinstall',
+        config: './tsd.json'
+    }, callback);
 });
