@@ -173,15 +173,6 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Static\Scripts\typings\jquery\jquery.d.ts" />
-    <None Include="Static\Scripts\typings\tsd.d.ts" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Static\Scripts\typings\bootstrap\bootstrap.d.ts" />
-    <None Include="Static\Scripts\typings\knockout\knockout.d.ts" />
-    <None Include="Static\Scripts\typings\requirejs\require.d.ts" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Static\Scripts\ts\Views\Home\Index\TestVm.ts" />
   </ItemGroup>
   <ItemGroup>
