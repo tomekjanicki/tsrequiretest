@@ -1,4 +1,4 @@
-﻿/// <binding BeforeBuild='default' />
+﻿/// <binding ProjectOpened='default, watchStyles, watchScripts' />
 "use strict";
 var gulp = require("gulp");
 var concat = require("gulp-concat");
@@ -24,7 +24,9 @@ var taskNames = {
     fonts: "fonts",
     shared_bundle: "shared-bundle",
     requirejs_bundle: "requirejs-bundle",
-    ts_compile: "ts_compile"
+    ts_compile: "ts_compile",
+    watchStyles: "watchStyles",
+    watchScripts: "watchScripts"
 }
 
 var commonConfigs = {
@@ -166,4 +168,12 @@ gulp.task(taskNames.bower_restore, function () {
 });
 
 gulp.task(taskNames.default, [taskNames.vendor_scripts, taskNames.styles], function () {
+});
+
+gulp.task(taskNames.watchStyles, function () {
+    gulp.watch(["static/content/src/**/*.*"], [taskNames.styles]);
+});
+
+gulp.task(taskNames.watchScripts, function () {
+    gulp.watch([commonConfigs.tssourcepath + "/**/*.*", "static/scripts/js/**/*.*"], [taskNames.vendor_scripts]);
 });
