@@ -13,6 +13,8 @@ var merge = require("gulp-merge");
 var tap = require("gulp-tap");
 var tsd = require("gulp-tsd");
 
+var basePath = "projects/webapplication3/static";
+
 var taskNames = {
     clean_vendor_scripts: "clean-vendor-scripts",
     bower_restore: "bower-restore",
@@ -31,12 +33,12 @@ var taskNames = {
 }
 
 var commonConfigs = {
-    scripts: "projects/webapplication3/static/scripts/dist",
+    scripts: basePath + "/scripts/dist",
     requirejsbundle: "require-bundle.min.js",
     sharedbundle: "shared.min.js",
     cssbundle: "app.min.css",
-    tssourcepath: "projects/webapplication3/static/scripts/ts",
-    tsdestpath: "projects/webapplication3/static/scripts/dist",
+    tssourcepath: basePath + "/scripts/ts",
+    tsdestpath: basePath + "/scripts/dist",
     bowerFolder: "bower_components",
     sourcemap: "./"
 }
@@ -72,22 +74,22 @@ var config = {
     tsdest: commonConfigs.tsdestpath + "/**/*.js",
 
     requirejssrcjs: [
-        "projects/webapplication3/static/scripts/js/requireconfig.js",
+        basePath + "/scripts/js/requireconfig.js",
         commonConfigs.bowerFolder + "/requirejs/require.js"
     ],
     requirejsbundlepath: commonConfigs.scripts + "/" + commonConfigs.requirejsbundle,
 
-    dummyscript: "projects/webapplication3/static/scripts/js/dummy.js",
+    dummyscript: basePath + "/scripts/js/dummy.js",
 
     sharedbundlepath: commonConfigs.scripts + "/" + commonConfigs.sharedbundle,
 
     bootstrapcss: commonConfigs.bowerFolder + "/bootstrap/dist/css/bootstrap.css",
     boostrapfonts: commonConfigs.bowerFolder + "/bootstrap/dist/fonts/*.*",
 
-    appcss: "projects/webapplication3/static/content/src/site.css",
-    fontsout: "projects/webapplication3/static/content/dist/fonts",
-    cssout: "projects/webapplication3/static/content/dist/css",
-    tsconfig: "projects/webapplication3/static/scripts/ts/tsconfig.json"
+    appcss: basePath + "/content/src/site.css",
+    fontsout: basePath + "/content/dist/fonts",
+    cssout: basePath + "/content/dist/css",
+    tsconfig: basePath + "/scripts/ts/tsconfig.json"
 }
 
 gulp.task(taskNames.clean_vendor_scripts, function () {
@@ -172,11 +174,11 @@ gulp.task(taskNames.default, [taskNames.vendor_scripts, taskNames.styles], funct
 });
 
 gulp.task(taskNames.watchStyles, function () {
-    gulp.watch(["projects/webapplication3/static/content/src/**/*.*"], [taskNames.styles]);
+    gulp.watch([basePath + "/content/src/**/*.*"], [taskNames.styles]);
 });
 
 gulp.task(taskNames.watchScripts, function () {
-    gulp.watch([commonConfigs.tssourcepath + "/**/*.*", "projects/webapplication3/static/scripts/js/**/*.*"], [taskNames.vendor_scripts]);
+    gulp.watch([commonConfigs.tssourcepath + "/**/*.*", basePath + "/scripts/js/**/*.*"], [taskNames.vendor_scripts]);
 });
 
 gulp.task(taskNames.tsd, function (callback) {
