@@ -36,5 +36,14 @@
     <button data-bind="click: clickMe">Click me via knockout</button>
     <br />
     <button id="jqueryButton">Click me via jquery</button>
+    <br/>
+    <div class="form-group">
+        <label for="name" class="control-label">Name: </label>
+        <input id="name" type="text" data-bind="value: name" placeholder="Service name" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="databaseConnectionString" class="control-label">Database connection string: </label>
+        <input id="databaseConnectionString" type="text" data-bind="value: databaseConnectionString" placeholder="Database connection string" class="form-control">
+    </div>
 </div>
 
