@@ -1,2 +1,2 @@
-require(["knockout", "jquery", "bootstrap", "knockoutvalidation"], function () {
+require(["knockout", "jquery", "bootstrap", "knockoutvalidation", "toastr"], function () {
 });

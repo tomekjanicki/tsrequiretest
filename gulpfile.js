@@ -48,7 +48,8 @@ var requireConfig = {
     paths: {
         "jquery": commonConfigs.bowerFolder + "/jquery/dist/jquery",
         "knockout": commonConfigs.bowerFolder + "/knockout/dist/knockout.debug",
-        "knockoutvalidation": commonConfigs.bowerFolder + "/knockout-validation/dist/knockout.validation"
+        "knockoutvalidation": commonConfigs.bowerFolder + "/knockout-validation/dist/knockout.validation",
+        "toastr": commonConfigs.bowerFolder + "/toastr/toastr"
     },
     exclude: [
         "exports",
@@ -86,6 +87,8 @@ var config = {
 
     bootstrapcss: commonConfigs.bowerFolder + "/bootstrap/dist/css/bootstrap.css",
     boostrapfonts: commonConfigs.bowerFolder + "/bootstrap/dist/fonts/*.*",
+
+    toastrcss: commonConfigs.bowerFolder + "/toastr/toastr.css",
 
     appcss: basePath + "/content/src/site.css",
     fontsout: basePath + "/content/dist/fonts",
@@ -151,7 +154,7 @@ gulp.task(taskNames.clean_styles, function () {
 });
 
 gulp.task(taskNames.css, [taskNames.clean_styles, taskNames.bower_restore], function () {
-    return gulp.src([config.bootstrapcss, config.appcss])
+    return gulp.src([config.bootstrapcss, config.appcss, config.toastrcss])
      .pipe(sourcemaps.init())
      .pipe(concat(commonConfigs.cssbundle))
      .pipe(minifyCSS())

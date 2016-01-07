@@ -4,6 +4,8 @@ import ko = require("knockout");
 
 import next = require("../../../Utils/Next");
 
+import toastr = require("toastr");
+
 class TestVm {
     isApiProject = ko.pureComputed(() => (this.projectType() === "Api"), this);
 
@@ -33,6 +35,8 @@ class TestVm {
             if (knockoutValidationErrors().length > 0) {
                 window.alert("Not valid");
                 knockoutValidationErrors.showAllMessages();
+            } else {
+                toastr.success("No errors");
             }
         });
     }
