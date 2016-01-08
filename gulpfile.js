@@ -41,7 +41,6 @@ var commonConfigs = {
     sharedbundle: "shared.min.js",
     cssbundle: "app.min.css",
     tssourcepath: basePath + "/scripts/ts",
-    tsdestpath: basePath + "/scripts/dist",
     bowerFolder: "bower_components",
     sourcemap: "./",
     kvTypingPath: "typings/knockout.validation/"
@@ -82,17 +81,13 @@ var config = {
     tssrc: [
         commonConfigs.tssourcepath + "/**/*.ts"
     ],
-    tsdest: commonConfigs.tsdestpath + "/**/*.js",
 
     requirejssrcjs: [
         basePath + "/scripts/js/requireconfig.js",
         commonConfigs.bowerFolder + "/requirejs/require.js"
     ],
-    requirejsbundlepath: commonConfigs.scripts + "/" + commonConfigs.requirejsbundle,
 
     dummyscript: basePath + "/scripts/js/dummy.js",
-
-    sharedbundlepath: commonConfigs.scripts + "/" + commonConfigs.sharedbundle,
 
     bootstrapcss: commonConfigs.bowerFolder + "/bootstrap/dist/css/bootstrap.css",
     boostrapfonts: commonConfigs.bowerFolder + "/bootstrap/dist/fonts/*.*",
@@ -108,9 +103,7 @@ var config = {
 
 gulp.task(taskNames.clean_vendor_scripts, function () {
     return del([
-        config.sharedbundlepath,
-        config.requirejsbundlepath,
-        config.tsdest
+        commonConfigs.scripts + "/**/*.*"
     ]);
 });
 
@@ -121,7 +114,7 @@ gulp.task(taskNames.ts_compile, [taskNames.clean_vendor_scripts, taskNames.bower
      .pipe(ts(tsProject))
      //.pipe(uglify())
      .pipe(sourcemaps.write(commonConfigs.sourcemap))
-     .pipe(gulp.dest(commonConfigs.tsdestpath));
+     .pipe(gulp.dest(commonConfigs.scripts));
 });
 
 gulp.task(taskNames.requirejs_bundle, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
