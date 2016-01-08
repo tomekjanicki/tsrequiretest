@@ -4,7 +4,6 @@ import TestVm = require("./TestVm");
 import $ = require("jquery");
 import ko = require("knockout");
 import toastr = require("toastr");
-
 import kv = require("knockoutvalidation");
 
 toastr.options.positionClass = "toast-top-center";
@@ -47,7 +46,6 @@ require(["signalrhubs"], () => {
 
     });
 });
-
 
 ko.applyBindings(new TestVm());
 
