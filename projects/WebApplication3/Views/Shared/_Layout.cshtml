@@ -1,11 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@using System.Reflection
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link href="~/Static/Content/dist/css/app.min.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="~/Static/Content/dist/img/favicon.ico" />
+    <link href="~/Static/Content/dist/css/app.min.css?v=@Assembly.GetExecutingAssembly().GetName().Version" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/Static/Content/dist/img/favicon.ico"/>
+    <meta name="version" content="@Assembly.GetExecutingAssembly().GetName().Version"/>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -32,6 +34,6 @@
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
-    <script data-main="@ViewBag.MainScript" src="~/Static/Scripts/dist/require-bundle.min.js"></script>
+    <script data-main="@ViewBag.MainScript" src="~/Static/Scripts/dist/require-bundle.min.js?v=@Assembly.GetExecutingAssembly().GetName().Version"></script>
 </body>
 </html>

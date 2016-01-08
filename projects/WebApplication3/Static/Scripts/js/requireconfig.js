@@ -10,5 +10,6 @@
         "signalrhubs": {
             deps: ["signalr"]
         }
-    }
+    },
+    urlArgs: "v=" + document.querySelector("meta[name=version]").getAttribute("content")
 };
