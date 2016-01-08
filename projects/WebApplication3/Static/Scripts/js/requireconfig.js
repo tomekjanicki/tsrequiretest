@@ -4,9 +4,9 @@
         "shared.min": ["jquery", "knockout", "bootstrap", "knockoutvalidation", "toastr", "signalr"]
     },
     paths: {
-        "signalrhubs": "../../../test/server"
+        "signalrhubs": "../../../signalr/hubs?"
     },
-    "shim": {
+    shim: {
         "signalrhubs": {
             deps: ["signalr"]
         }

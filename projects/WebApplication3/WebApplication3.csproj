@@ -177,11 +177,6 @@
     <Content Include="Static\Scripts\dist\views\Home\Index\Main.js" />
     <Content Include="Static\Scripts\dist\views\Home\Index\TestVm.js" />
     <None Include="Static\Scripts\js\dummy.js" />
-    <Content Include="test\code.js" />
-    <Content Include="test\default.html" />
-    <Content Include="test\jquery-2.1.4.js" />
-    <Content Include="test\jquery.signalR-2.2.0.js" />
-    <Content Include="test\server.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -211,7 +206,7 @@
     <None Include="Static\Scripts\ts\Utils\Next.ts" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Static\Scripts\ts\Views\Home\Index\ext.ts" />
+    <None Include="Static\Scripts\ts\Views\Home\Index\ext.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
