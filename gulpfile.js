@@ -12,7 +12,6 @@ var amdOptimize = require("gulp-amd-optimizer");
 var merge = require("gulp-merge");
 var tap = require("gulp-tap");
 var tsd = require("gulp-tsd");
-var seq = require("run-sequence");
 
 var basePath = "projects/webapplication3/static";
 
@@ -29,8 +28,6 @@ var taskNames = {
     requirejs_bundle: "requirejs-bundle",
     ts_compile: "ts_compile",
     tsd: "tsd",
-    fixKVTyping: "fixKVTyping",
-    tsdAndfixKVTyping: "tsdAndfixKVTyping",
     watchStyles: "watchStyles",
     watchScripts: "watchScripts"
 }
@@ -42,8 +39,7 @@ var commonConfigs = {
     cssbundle: "app.min.css",
     tssourcepath: basePath + "/scripts/ts",
     bowerFolder: "bower_components",
-    sourcemap: "./",
-    kvTypingPath: "typings/knockout.validation/"
+    sourcemap: "./"
 }
 
 var requireConfig = {
@@ -97,8 +93,7 @@ var config = {
     appcss: basePath + "/content/src/site.css",
     fontsout: basePath + "/content/dist/fonts",
     cssout: basePath + "/content/dist/css",
-    tsconfig: basePath + "/scripts/ts/tsconfig.json",
-    kvTyping: commonConfigs.kvTypingPath + "knockout.validation.d.ts"
+    tsconfig: basePath + "/scripts/ts/tsconfig.json"
 }
 
 gulp.task(taskNames.clean_vendor_scripts, function () {
@@ -107,7 +102,7 @@ gulp.task(taskNames.clean_vendor_scripts, function () {
     ]);
 });
 
-gulp.task(taskNames.ts_compile, [taskNames.clean_vendor_scripts, taskNames.bower_restore, taskNames.tsdAndfixKVTyping], function () {
+gulp.task(taskNames.ts_compile, [taskNames.clean_vendor_scripts, taskNames.bower_restore, taskNames.tsd], function () {
     var tsProject = ts.createProject(config.tsconfig);
     return gulp.src(config.tssrc)
      .pipe(sourcemaps.init())
@@ -193,16 +188,4 @@ gulp.task(taskNames.tsd, function (callback) {
         command: "reinstall",
         config: "tsd.json"
     }, callback);
-});
-
-gulp.task(taskNames.fixKVTyping, [], function () {
-    return gulp.src([config.kvTyping])
-        .pipe(tap(function (file) {
-            file.contents = new Buffer(file.contents.toString().replace("declare module \"knockout.validation\"", "declare module \"knockoutvalidation\""));
-        }))
-        .pipe(gulp.dest(commonConfigs.kvTypingPath));
-});
-
-gulp.task(taskNames.tsdAndfixKVTyping, function (cb) {
-    seq(taskNames.tsd, taskNames.fixKVTyping, cb);
 });
