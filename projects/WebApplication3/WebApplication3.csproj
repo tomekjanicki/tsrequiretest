@@ -210,6 +210,9 @@
   <ItemGroup>
     <None Include="Static\Scripts\ts\Utils\Next.ts" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Static\Scripts\ts\Views\Home\Index\ext.ts" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
