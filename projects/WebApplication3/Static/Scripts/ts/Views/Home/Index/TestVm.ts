@@ -6,6 +6,8 @@ import next = require("../../../Utils/Next");
 
 import toastr = require("toastr");
 
+import kv = require("knockoutvalidation");
+
 class TestVm {
     isApiProject = ko.pureComputed(() => (this.projectType() === "Api"), this);
 
@@ -30,15 +32,13 @@ class TestVm {
     clickMe = (): void => {
         var n = new next();
         window.alert(n.getMessageFromNext());
-        require(["knockoutvalidation"], (kv: KnockoutValidationStatic) => {
-            var knockoutValidationErrors = kv.group(this, { deep: true });
-            if (knockoutValidationErrors().length > 0) {
-                window.alert("Not valid");
-                knockoutValidationErrors.showAllMessages();
-            } else {
-                toastr.success("No errors");
-            }
-        });
+        var knockoutValidationErrors = kv.group(this, { deep: true });
+        if (knockoutValidationErrors().length > 0) {
+            window.alert("Not valid");
+            knockoutValidationErrors.showAllMessages();
+        } else {
+            toastr.success("No errors");
+        }
     }
 }
 

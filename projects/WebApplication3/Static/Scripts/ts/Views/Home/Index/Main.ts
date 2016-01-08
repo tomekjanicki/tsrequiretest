@@ -5,26 +5,25 @@ import $ = require("jquery");
 import ko = require("knockout");
 import toastr = require("toastr");
 
-require(["knockoutvalidation"], (kv: KnockoutValidationStatic) => {
+import kv = require("knockoutvalidation");
 
-    toastr.options.positionClass = "toast-top-center";
+toastr.options.positionClass = "toast-top-center";
 
-    kv.init({
-        registerExtenders: true,
-        messagesOnModified: true,
-        insertMessages: true,
-        parseInputAttributes: true,
-        messageTemplate: null
-    }, true);
+kv.init({
+    registerExtenders: true,
+    messagesOnModified: true,
+    insertMessages: true,
+    parseInputAttributes: true,
+    messageTemplate: null
+}, true);
 
-    kv.rules.pattern.message = "Invalid.";
+kv.rules.pattern.message = "Invalid.";
 
-    $(() => {
-        $("#jqueryButton").click(() => {
-            window.alert("Alert from jquery");
-        });
+$(() => {
+    $("#jqueryButton").click(() => {
+        window.alert("Alert from jquery");
     });
-
-    ko.applyBindings(new TestVm());
 });
+
+ko.applyBindings(new TestVm());
 
