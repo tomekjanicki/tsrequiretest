@@ -58,7 +58,8 @@ var requireConfig = {
     exclude: [
         "exports",
         "require",
-        "bootstrap"
+        "bootstrap",
+        "signalr"
     ]
 };
 
@@ -67,6 +68,10 @@ var options = {
 };
 
 var shimConfig = {
+    "bower_components/signalr/jquery.signalR.js": {
+        "header": "define(\"signalr\", [], function() {",
+        "footer": "});"
+    },
     "bower_components/bootstrap/dist/js/bootstrap.js": {
         "header": "define(\"bootstrap\", [], function() {",
         "footer": "});"

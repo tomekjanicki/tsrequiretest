@@ -12,6 +12,7 @@
     "knockout": "3.4.0",
     "requirejs": "2.1.20",
     "toastr": "2.1.2",
-    "knockout-validation": "2.0.3"
+    "knockout-validation": "2.0.3",
+    "signalr": "2.2.0"
   }
 }
