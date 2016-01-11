@@ -107,7 +107,7 @@ gulp.task(taskNames.ts_compile, [taskNames.clean_vendor_scripts, taskNames.bower
     return gulp.src(config.tssrc)
      .pipe(sourcemaps.init())
      .pipe(ts(tsProject))
-     //.pipe(uglify())
+     .pipe(uglify())
      .pipe(sourcemaps.write(commonConfigs.sourcemap))
      .pipe(gulp.dest(commonConfigs.scripts));
 });
@@ -115,7 +115,7 @@ gulp.task(taskNames.ts_compile, [taskNames.clean_vendor_scripts, taskNames.bower
 gulp.task(taskNames.requirejs_bundle, [taskNames.clean_vendor_scripts, taskNames.bower_restore], function () {
     return gulp.src(config.requirejssrcjs)
      .pipe(sourcemaps.init())
-     //.pipe(uglify())
+     .pipe(uglify())
      .pipe(concat(commonConfigs.requirejsbundle))
      .pipe(sourcemaps.write(commonConfigs.sourcemap))
      .pipe(gulp.dest(commonConfigs.scripts));
@@ -134,7 +134,7 @@ gulp.task(taskNames.shared_bundle, [taskNames.clean_vendor_scripts, taskNames.bo
         gulp.src(config.dummyscript, { base: requireConfig.baseUrl }).pipe(amdOptimize(requireConfig, options))
      )
      .pipe(sourcemaps.init())
-     //.pipe(uglify())
+     .pipe(uglify())
      .pipe(concat(commonConfigs.sharedbundle))
      .pipe(sourcemaps.write(commonConfigs.sourcemap))
      .pipe(gulp.dest(commonConfigs.scripts));
