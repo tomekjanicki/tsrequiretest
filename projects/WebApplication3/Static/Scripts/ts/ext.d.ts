@@ -13,3 +13,5 @@ declare module "knockoutvalidation" {
     export = validation;
 }
 
+declare module "signalrhubs" {
+}
